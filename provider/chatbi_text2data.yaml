@@ -1,0 +1,90 @@
+identity:
+  author: "guojingi"
+  name: "itongban"
+  label:
+    en_US: "itongbanChatBI"
+    zh_Hans: "同伴ChatBI"
+  description:
+    en_US: "Inquire about your data through natural language."
+    zh_Hans: "通过自然语言的方式询问您的数据。"
+  icon: "itongban.svg"
+  tags: # 标签，用于前端展示
+    - utilities
+
+#配置 Provider 凭证
+credentials_for_provider:
+    base_url: # Base URL，将在 Python 代码中使用
+      type: text-input # 输入框
+      required: true # 此凭证是必需的
+      label: # 在 Dify UI 中显示的标签 (支持多语言)
+        en_US: Itongban Base URL
+        zh_Hans: 同伴的Base URL
+        # ... (其他语言)
+      placeholder: # 输入框的提示文字 (支持多语言)
+        en_US: Enter Itongban Base URL
+        zh_Hans: 请输入同伴的Base URL
+        # ... (其他语言)
+    access_token: # 这是凭证的内部名称，将在 Python 代码中使用
+        type: secret-input # 输入类型为密码框
+        required: true # 此凭证是必需的
+        label: # 在 Dify UI 中显示的标签 (支持多语言)
+            en_US: Itongban Access Token
+            zh_Hans: 同伴的访问令牌
+            # ... (其他语言)
+        placeholder: # 输入框的提示文字 (支持多语言)
+            en_US: Enter Itongban access token
+            zh_Hans: 请输入同伴的访问令牌
+            # ... (其他语言)
+        help: # 帮助提示信息 (支持多语言)
+            en_US: How to get your access token
+            zh_Hans: 如何获取访问令牌
+            # ... (其他语言)
+        url: http://103.139.212.24:9060 # 点击帮助提示时跳转的 URL
+
+#########################################################################################
+# If you want to support OAuth, you can uncomment the following code.
+#########################################################################################
+# oauth_schema:
+#   client_schema:
+#     - name: "client_id"
+#       type: "secret-input"
+#       required: true
+#       url: https://example.com/oauth/authorize
+#       placeholder:
+#         en_US: "Please input your Client ID"
+#         zh_Hans: "请输入你的 Client ID"
+#         pt_BR: "Insira seu Client ID"
+#       help:
+#         en_US: "Client ID is used to authenticate requests to the example.com API."
+#         zh_Hans: "Client ID 用于认证请求到 example.com API。"
+#         pt_BR: "Client ID é usado para autenticar solicitações à API do example.com."
+#       label:
+#         zh_Hans: "Client ID"
+#         en_US: "Client ID"
+#     - name: "client_secret"
+#       type: "secret-input"
+#       required: true
+#       url: https://example.com/oauth/authorize
+#       placeholder:
+#         en_US: "Please input your Client Secret"
+#         zh_Hans: "请输入你的 Client Secret"
+#         pt_BR: "Insira seu Client Secret"
+#       help:
+#         en_US: "Client Secret is used to authenticate requests to the example.com API."
+#         zh_Hans: "Client Secret 用于认证请求到 example.com API。"
+#         pt_BR: "Client Secret é usado para autenticar solicitações à API do example.com."
+#       label:
+#         zh_Hans: "Client Secret"
+#         en_US: "Client Secret"
+#   credentials_schema:
+#     - name: "access_token"
+#       type: "secret-input"
+#       label:
+#         zh_Hans: "Access Token"
+#         en_US: "Access Token"
+
+tools:
+  - tools/chatbi_text2data.yaml
+extra:
+  python:
+    source: provider/chatbi_text2data.py

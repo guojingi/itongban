@@ -1,0 +1,7 @@
+dify_plugin==0.4.5
+sqlparse==0.5.3
+pandas==2.3.2
+Requests==2.32.5
+SQLAlchemy==2.0.35
+pymysql==1.1.2
+psycopg2-binary==2.9.10

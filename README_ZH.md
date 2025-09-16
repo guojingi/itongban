@@ -1,59 +1,62 @@
-## Tongban ChatBI
+## 同伴ChatBI
 
 **Author:** guojingi
 **Version:** 0.0.1
 **Type:** tool
 
-### Overview
-Tongban ChatBI provides a tool: ChatBI - Intelligent Query, which can access your data in a natural language conversation.
+### 概述
+同伴ChatBI提供了一个工具：ChatBI-智能问数，可以实现以自然语言对话的方式访问您的数据。
 
 
-The following will introduce how to configure and demonstrate examples.
 
-### 1. Apply for a tongban access token
+下面将介绍如何配置和示例演示。
 
-If you don't have any tongban yet, please register and apply on the tongban website register.
+### 1.申请同伴访问令牌
+
+如果您还没有同伴，请在同伴网站上注册申请。
 ![register](_assets/image-register.png)
 
-Log on tongban. Click on "Manage">"Access Tokens">"Add Access Token" to create a new token and obtain its value.
+登录到同伴。单击“管理”>“访问令牌”>“新增访问令牌”，以创建新令牌并获取令牌值。
 
 ![menu](_assets/image-menu.png)
 
-If you have a partner's private deployment environment, you can obtain tokens in your own environment.
+如果您有同伴的私有部署环境，则可以在自己的环境中获取Token。
 
-### 2. Fill in the configuration in Dify
-Install tongban ChatBI from the Marketplace and fill in the token and base address on the authorization page. Token is the value obtained in the previous step.
-If you have a tongban private deployment environment, the base address is your environment base address.
+### 2.在Dify中填写配置
+
+从Marketplace安装同伴ChatBI，并在授权页面中填写令牌和基地址。Token是在上一步中获得的值。
+
+如果您有同伴私有部署环境，则基地址就是您的环境基地址。
 
 ![plugin-auth](_assets/image-plugin-auth.png)
 
-### 3.Use tools
+### 3.使用工具
 
-1. Introducing ChatBI_Text2Data Plugin
-2. Complete basic parameter configuration
+1. 引入 ChatBI_智能问数 插件
+2. 完成基础参数配置
 
-| Name           | Type         | Required | Description                                 |
-|----------------|--------------|----------|---------------------------------------------|
-| assistant_name | string       | Yes      | ChatBI assistant name configured in tongban |
-| query          | string       | Yes      | Natural language for querying data content  |
-| db_type        | select       | Yes      | Database type(MySQL/PostgreSQL)             |
-| db_host        | string       | Yes      | Database host address                       |
-| db_port        | number       | Yes      | Database port                               |
-| db_username    | string       | Yes      | Database username                           |
-| db_password    | secret-input | Yes      | Database password                           |
-| db_name        | string       | Yes      | Database name                               |
-| query_sql      | string       | Yes      | Query SQL for dify user name or email       |
+| 参数名         | 类型         | 必填 | 描述                           |
+| -------------- | ------------ | ---- | ------------------------------ |
+| assistant_name | string       | 是   | 同伴中配置的ChatBI助理名称     |
+| query          | string       | 是   | 想要查询数据内容的自然语言     |
+| db_type        | select       | 是   | 数据库类型（MySQL/PostgreSQL） |
+| db_host        | string       | 是   | 数据库主机地址                 |
+| db_port        | number       | 是   | 数据库端口                     |
+| db_username    | string       | 是   | 数据库用户名                   |
+| db_password    | secret-input | 是   | 数据库密码                     |
+| db_name        | string       | 是   | 数据库库名                     |
+| query_sql      | string       | 是   | 查询dify用户姓名或邮箱的SQL    |
 
-3. The configuration of ChatBI assistant needs to be preprocessed in tongban, please refer to [the tongban operation manual for details](https://doc.saasbi.itongban.com)
+3. ChatBI助理的配置需要在同伴中进行配置预处理，详见[同伴操作手册](https://doc.saasbi.itongban.com)
 
 
-**Example**
+**示例**
 
 ![plugin-params](_assets/image-plugin-params.png)
 
 ![plugin-demo](_assets/image-plugin-demo.png)
 
-**Output Example**
+**输出示例**
 
 ```
 {

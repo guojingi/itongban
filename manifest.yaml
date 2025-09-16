@@ -1,0 +1,40 @@
+version: 0.0.1
+type: plugin
+author: guojingi
+name: itongban
+label:
+  en_US: itongbanChatBI
+  zh_Hans: 同伴ChatBI
+description:
+  en_US: Inquire about your data through natural language.
+  zh_Hans: 通过自然语言的方式询问您的数据。
+icon: itongban.svg
+icon_dark: itongban-dark.svg
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+    endpoint:
+      enabled: true
+    app:
+      enabled: true
+    storage:
+      enabled: true
+      size: 1048576
+plugins:
+  tools:
+    - provider/chatbi_text2data.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: null
+created_at: 2025-09-16T14:56:12.4143115+08:00
+privacy: PRIVACY.md
+verified: false

@@ -1,0 +1,121 @@
+identity:
+  name: "ChatBI-text2data"
+  author: "guojingi"
+  label:
+    en_US: "ChatBI-text2data"
+    zh_Hans: "ChatBI-智能问数"
+description:
+  human:
+    en_US: "Itongban's intelligent query plugin provides plug and play ChatBI capabilities."
+    zh_Hans: "同伴旗下的智能问数插件，提供即插即用的ChatBI能力。"
+  llm: "Itongban's intelligent query plugin provides plug and play ChatBI capabilities."
+parameters:
+  - name: assistant_name
+    type: string
+    required: true
+    label:
+      en_US: Assistant name
+      zh_Hans: 助理名称
+    human_description:
+      en_US: "Assistant name configured in Itongban."
+      zh_Hans: "在同伴中配置的助理名称。"
+    llm_description: "Assistant name configured in Itongban."
+    form: llm
+  - name: query
+    type: string
+    required: true
+    label:
+      en_US: Query string
+      zh_Hans: 查询语句
+    human_description:
+      en_US: "Enter the query statement for data analysis."
+      zh_Hans: "输入要进行数据分析的查询语句。"
+    llm_description: "Enter the query statement for data analysis."
+    form: llm
+  ## 以下配置参数是用于连接dify数据库查询用户姓名或者邮箱
+  - name: db_type
+    type: select
+    required: true
+    options:
+      - value: mysql
+        label:
+          en_US: MySQL
+          zh_Hans: MySQL
+      - value: postgresql
+        label:
+          en_US: PostgreSQL
+          zh_Hans: PostgreSQL
+    default: postgresql
+    label:
+      en_US: Database type
+      zh_Hans: 数据库类型
+    human_description:
+      en_US: Used for selecting the database type, mysql or postgresql.
+      zh_Hans: 用于选择数据库类型，mysql或postgresql。
+    form: llm
+  - name: db_host
+    type: string
+    required: true
+    default: localhost
+    label:
+      en_US: Database Host
+      zh_Hans: 数据库地址
+    human_description:
+      en_US: Database hostname or IP address (Original string, not URL-encoded string).
+      zh_Hans: 数据库的主机名或IP地址。
+    form: llm
+  - name: db_port
+    type: number
+    required: true
+    label:
+      en_US: Port
+      zh_Hans: 端口
+    human_description:
+      en_US: Database port.
+      zh_Hans: 数据库的端口。
+    form: llm
+  - name: db_username
+    type: string
+    required: true
+    label:
+      en_US: Username
+      zh_Hans: 用户名
+    human_description:
+      en_US: Database username (Original string, not URL-encoded string).
+      zh_Hans: 数据库的用户名。
+    form: llm
+  - name: db_password
+    type: secret-input
+    required: true
+    label:
+      en_US: Password
+      zh_Hans: 密码
+    human_description:
+      en_US: Database password (Original string, not URL-encoded string).
+      zh_Hans: 数据库的密码。
+    form: llm
+  - name: db_name
+    type: string
+    required: true
+    label:
+      en_US: Database name
+      zh_Hans: 库名
+    human_description:
+      en_US: Database name (Original string, not URL-encoded string).
+      zh_Hans: 数据库的名称。
+    form: llm
+  - name: query_sql
+    type: string
+    required: true
+    label:
+      en_US: Query SQL
+      zh_Hans: 查询SQL
+    human_description:
+      en_US: "Enter SQL to query dify user name or email."
+      zh_Hans: "根据查询dify用户姓名或邮箱。"
+      llm_description: "Enter SQL to query dify user email."
+    form: llm
+    default: select email from accounts where name = 'admin'
+extra:
+  python:
+    source: tools/chatbi_text2data.py
